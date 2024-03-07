@@ -11,7 +11,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  job-1:
+  lint:
     runs-on: ubuntu-latest
     steps:       
     - uses: actions/checkout@v3
@@ -23,3 +23,22 @@ jobs:
       with:
         name: actionlint-results
         path: ${{ steps.action-lint.outputs.results-file }}
+
+    - name: Publish Code Quality Report
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const resultsPath = `${process.env.GITHUB_WORKSPACE}/${{ steps.action-lint.outputs.results-file }}`;
+          const resultsContent = fs.readFileSync(resultsPath, 'utf8');
+
+          const summary = `## Actionlint Results\n\`\`\`\n${resultsContent}\n\`\`\``;
+          console.log(summary);
+          await github.workflowRun.update({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            run_id: context.runId,
+            body: summary,
+          });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
