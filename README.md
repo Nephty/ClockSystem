@@ -1,6 +1,6 @@
 # ClockSystem
 
-<img src="https://github.com/Nephty/ClockSystem/actions/workflows/gradle.yml/badge.svg"> <img src="https://github.com/Nephty/ClockSystem/actions/workflows/pmd.yml/badge.svg"> <img src="https://github.com/Nephty/ClockSystem/actions/workflows/codeql.yml/badge.svg"> <img src="https://github.com/Nephty/ClockSystem/actions/workflows/scorecard.yml/badge.svg">
+<img src="https://github.com/Nephty/ClockSystem/actions/workflows/gradle.yml/badge.svg"> <img src="https://github.com/Nephty/ClockSystem/actions/workflows/pmd.yml/badge.svg"> <img src="https://github.com/Nephty/ClockSystem/actions/workflows/codeql.yml/badge.svg"> [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Nephty/ClockSystem/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Nephty/ClockSystem)
 
 This is a gradle-based Java project for a Clock with Swing GUI and JUnit5 unit tests. It has been created and used by Tom Mens for educational purposes at the University of Mons.
 
